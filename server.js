@@ -47,6 +47,10 @@ app.get("/eventos", (req, res) => {
     res.sendFile(path.join(__dirname, "views", "eventos.html"));
 });
 
+app.get("/admin-menu", (req, res) => {
+    res.sendFile(path.join(__dirname, "views", "admin-menu.html"));
+});
+
 app.get("/", eventoController.home);
 app.get("/api/eventos", eventoController.obtenerEventos);
 app.post("/api/eventos", eventoController.agregarEventos);

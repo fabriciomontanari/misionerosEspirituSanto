@@ -5,9 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Eventos</title>
     <link rel="stylesheet" href="/public/css/eventos.css">
+    <link rel="stylesheet" href="/public/css/index.css">
 </head>
 <body>
-    <h1>Gestión de Eventos</h1>
+    <header>
+        <div class="header-main">
+            <div class="logo">logo</div>
+            <div class="title-section">
+                <h1>Misioneros del</h1>
+                <p>Espíritu Santo</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/">Eventos</a></li>
+                    <li><a href="/">Nosotros</a></li>
+                    <li><a href="/">Contacto</a></li>
+                    <li><a href="/admin-menu">Admin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <br><br>
+    <h1>Agrega  un nuevo Evento</h1>
+    <br>
 
     <form id="eventoForm">
         <input type="text" id="nombreEvento" name="nombreEvento" placeholder="Nombre del evento" required>
@@ -20,9 +41,6 @@
         <input type="file" id="imagen" name="imagen" accept="image/*" required>
         <button type="submit">Agregar Evento</button>
     </form>
-
-    <h2>Lista de Eventos</h2>
-    <ul id="eventosLista"></ul>
 
     <script src="/public/js/eventos.js"></script>
 </body>
