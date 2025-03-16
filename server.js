@@ -1,58 +1,53 @@
 const express = require("express");
-const sql = require("mssql");
 const bodyParser = require("body-parser");
-const path = require ("path");
+const path = require("path");
+const { poolPromise } = require("./config/db"); 
+const eventoController = require("./controllers/eventosController");
+
+
 const app = express();
 
-
-
-const bdConfig = {
-    user: 'sa',
-    password: 'Fabricio23!',
-    server: 'localhost', 
-    database: 'misionerosEspirituSanto',
-    options: {
-        encrypt: false, 
-        trustServerCertificate: true
-    }
-};
-
-app.use(bodyParser.urlencoded({ extended: true}));
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: "50mb" }));
+app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 
 app.use(
     "/public",
     express.static(path.join(__dirname, "public"), {
-      setHeaders: (res, filePath) => {
-        if (filePath.endsWith(".css")) {
-          res.setHeader("Content-Type", "text/css");
-        }
-        if (filePath.endsWith(".js")) {
-          res.setHeader("Content-Type", "application/javascript");
-        }
-      },
+        setHeaders: (res, filePath) => {
+            if (filePath.endsWith(".css")) {
+                res.setHeader("Content-Type", "text/css");
+            }
+            if (filePath.endsWith(".js")) {
+                res.setHeader("Content-Type", "application/javascript");
+            }
+        },
     })
-  );
+);
 
-async function conectarBD() {
+(async () => {
     try {
-        await sql.connect(bdConfig);
-        console.log('Conexión exitosa a SQL Server');
-    } catch (err) {
-        console.error('Error conectando a SQL Server:', err);
+        await poolPromise; 
+        console.log("Conectado a la base de datos SQL Server");
+
+        const PORT = process.env.PORT || 3000;
+        app.listen(PORT, () => {
+            console.log(`Servidor corriendo en el puerto ${PORT}`);
+        });
+    } catch (error) {
+        console.error("Error conectando a la base de datos:", error);
+        process.exit(1); 
     }
-}
+})();
 
-conectarBD();
-
-  app.get("/", (req, res) => {
+app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "views", "index.html"));
-  });
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
 
+app.get("/eventos", (req, res) => {
+    res.sendFile(path.join(__dirname, "views", "eventos.html"));
+});
 
+app.get("/", eventoController.home);
+app.get("/api/eventos", eventoController.obtenerEventos);
+app.post("/api/eventos", eventoController.agregarEventos);
 

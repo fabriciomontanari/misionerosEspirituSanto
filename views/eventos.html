@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Eventos</title>
+    <link rel="stylesheet" href="/public/css/eventos.css">
+</head>
+<body>
+    <h1>Gestión de Eventos</h1>
+
+    <form id="eventoForm">
+        <input type="text" id="nombreEvento" name="nombreEvento" placeholder="Nombre del evento" required>
+        <input type="text" id="descripcion" name="descripcion" placeholder="Descripción">
+        <input type="date" id="fecha" name="fecha" required>
+        <input type="time" id="hora" name="hora" required>
+        <input type="text" id="lugar" name="lugar" placeholder="Lugar" required>
+        <input type="number" id="edadMinima" name="edadMinima" placeholder="Edad mínima" required>
+        <input type="number" id="edadMaxima" name="edadMaxima" placeholder="Edad máxima" required>
+        <input type="file" id="imagen" name="imagen" accept="image/*" required>
+        <button type="submit">Agregar Evento</button>
+    </form>
+
+    <h2>Lista de Eventos</h2>
+    <ul id="eventosLista"></ul>
+
+    <script src="/public/js/eventos.js"></script>
+</body>
+</html>
