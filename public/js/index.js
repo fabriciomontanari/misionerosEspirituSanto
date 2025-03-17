@@ -30,7 +30,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                         <p><i class="far fa-clock"></i> ${evento.hora}</p>
                         <p><i class="fas fa-users"></i> Para personas de ${evento.edadMinima} a ${evento.edadMaxima} años.</p>
                     </div>
+                    <a href="/inscripciones">
                     <button class="inscribirse">INSCRIBIRSE <i class="fas fa-arrow-right"></i></button>
+                    </a>
                 </div>
             `;
 

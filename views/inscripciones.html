@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscripcion a Eventos</title>
+    <link rel="stylesheet" href="../public/css/inscripciones.css">
+    <link rel="stylesheet" href="../public/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.7.12/sweetalert2.min.css">
+
+</head>
+<body>
+    <header>
+        <div class="header-main">
+            <div class="logo">logo</div>
+            <div class="title-section">
+                <h1>Misioneros del</h1>
+                <p>Espíritu Santo</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/">Eventos</a></li>
+                    <li><a href="/">Nosotros</a></li>
+                    <li><a href="/">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <h1>INSCRIPCION A EVENTO</h1>
+     
+    <form id="inscripcionForm">
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre completo:" required>
+        <input type="email" id="correo" name="correo" placeholder="Correo electrónico" required>
+        <input type="tel" id="telefono" name="telefono" placeholder="Teléfono" required>
+        <select id="eventoId" name="eventoId" required>
+            <option value="">Seleccione un evento</option>
+        </select>
+        <button type="submit">Inscribirse</button>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.7.12/sweetalert2.all.min.js"></script>
+    <script src="../public/js/inscripcion.js"></script>
+</body>
+</html>
