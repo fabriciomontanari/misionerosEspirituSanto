@@ -36,7 +36,27 @@ async function obtenerInscripciones(){
     }
 }
 
+async function obtenerEventoPorId(eventoId) {
+    let pool;
+    try {
+        pool = await poolPromise;
+        const result = await pool.request()
+            .input("eventoId", sql.Int, eventoId)
+            .query(`
+                SELECT nombreEvento, fecha, hora, lugar 
+                FROM EVENTOS 
+                WHERE id = @eventoId
+            `);
+        
+        return result.recordset[0];
+    } catch (error) {
+        console.error("Error al obtener los detalles del evento:", error);
+        throw error;
+    }
+}
+
 module.exports = {
     agregarInscripcion,
-    obtenerInscripciones
+    obtenerInscripciones,
+    obtenerEventoPorId
 }
