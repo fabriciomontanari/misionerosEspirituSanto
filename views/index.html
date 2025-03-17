@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Misioneros del Espíritu Santo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="/public/css/index.css">
 </head>
@@ -11,7 +14,9 @@
     <div class="container">
         <header>
             <div class="header-main">
-                <div class="logo">logo</div>
+                <div class="logo">
+                    <img src="/public/img/logo.png" alt="Logo Misioneros" style="max-width: 100%; max-height: 100%;">
+                </div>
                 <div class="title-section">
                     <h1>Misioneros del</h1>
                     <p>Espíritu Santo</p>
@@ -28,36 +33,33 @@
             </div>
         </header>
 
-        <section class="hero">
+        <section class="hero" id="inicio">
             <div class="hero-content">
-                <h2>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</h2>
-                <p>Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T.) persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen.</p>
-                <a href="#mission">
-                    <button type="button" class="btn btn-outline-light">Conoce más sobre nuestra misión</button>
-                  </a>
+                <h2>Compartiendo el mensaje del Espíritu Santo con el mundo</h2>
+                <p>Somos una comunidad comprometida con la difusión de los valores espirituales y el servicio a los demás, inspirados por la guía del Espíritu Santo en nuestra misión diaria.</p>
+                <a href="#mission" class="btn btn-outline-light">Conoce más sobre nuestra misión</a>
             </div>
         </section>
 
-        <section class="mission" id="mission">
+        <section class="mission" id="nosotros">
             <h2>Nuestra Misión</h2>
             <div class="mission-content">
                 <div class="mission-text">
-                    <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h3>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                    <h3>Inspirados por el Espíritu Santo, llevamos esperanza y fe a comunidades de todo el mundo.</h3>
+                    <p>En los Misioneros del Espíritu Santo, nos dedicamos a servir a través de la educación, el apoyo comunitario y la guía espiritual, creando espacios donde cada persona pueda encontrar su camino.</p>
+                    <p>Nuestra comunidad trabaja incansablemente para construir un mundo más justo y compasivo, donde los valores del Espíritu Santo se reflejen en cada acción y cada relación humana que construimos.</p>
                 </div>
                 <div class="mission-image">
                     <img src="/public/img/foto.jpg" alt="Imagen de nuestra misión">
                 </div>
             </div>
         </section>
-
-    <section class="eventos" id="eventos">
-        <h2>Eventos Próximos</h2>
-        <div class="events-grid" id="events-container">
-            
-        </div>
-    </section>
+        <section class="eventos" id="eventos">
+            <h2>Eventos Próximos</h2>
+            <div class="events-grid" id="events-container">
+                
+            </div>
+        </section>
 
         <section class="contact" id="contacto">
             <h2>Contáctanos</h2>
@@ -80,14 +82,14 @@
                         </div>
                         <div class="info-text">
                             <h4>Email</h4>
-                            <p>email@email.com</p>
-                            <p>email@email.com</p>
+                            <p>contacto@misioneros.org</p>
+                            <p>info@misioneros.org</p>
                         </div>
                     </div>
                     <div class="social">
-                        <h4>Redes</h4>
+                        <h4>Redes Sociales</h4>
                         <div class="social-icons">
-                            <p>Sociales</p>
+                            <p>Síguenos en:</p>
                             <a href="https://www.instagram.com/misioneroscostarica/" class="icon-circle"><i class="fab fa-instagram"></i></a>
                             <a href="https://www.facebook.com/Cefej.MSpS" class="icon-circle"><i class="fab fa-facebook-f"></i></a>
                         </div>
@@ -97,21 +99,21 @@
                     <form>
                         <div class="form-group">
                             <label for="nombre">Nombre:</label>
-                            <input type="text" id="nombre" name="nombre">
+                            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo">
                         </div>
                         <div class="form-group">
                             <label for="email">Email:</label>
-                            <input type="email" id="email" name="email">
+                            <input type="email" id="email" name="email" placeholder="tu@email.com">
                         </div>
                         <div class="form-group">
                             <label for="asunto">Asunto:</label>
-                            <input type="text" id="asunto" name="asunto">
+                            <input type="text" id="asunto" name="asunto" placeholder="Asunto del mensaje">
                         </div>
                         <div class="form-group">
                             <label for="mensaje">Mensaje:</label>
-                            <textarea id="mensaje" name="mensaje"></textarea>
+                            <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí..."></textarea>
                         </div>
-                        <button type="submit" class="enviar">Enviar</button>
+                        <button type="submit" class="enviar">Enviar Mensaje</button>
                     </form>
                 </div>
             </div>
@@ -120,9 +122,15 @@
         <section class="map">
             <h2>Encuéntranos en</h2>
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.8147651806366!2d-84.12345678901234!3d9.987654321098765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwNTknMTUuNiJOIDg0wrAwNyczMy4wIlc!5e0!3m2!1ses!2scr!4v1615123456789!5m2!1ses!2scr" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.8147651806366!2d-84.12345678901234!3d9.987654321098765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwNTknMTUuNiJOIDg0wrAwNyczMy4wIlc!5e0!3m2!1ses!2scr!4v1615123456789!5m2!1ses!2scr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </section>
+        
+        <footer>
+            <div class="footer-content">
+                <p>&copy; 2025 Misioneros del Espíritu Santo. Todos los derechos reservados.</p>
+            </div>
+        </footer>
     </div>
     <script src="/public/js/index.js"></script>
 </body>
