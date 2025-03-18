@@ -4,6 +4,8 @@ const path = require("path");
 const { poolPromise } = require("./config/db"); 
 const eventoController = require("./controllers/eventosController");
 const inscripcionController = require("./controllers/inscripcionController");
+const authController = require("./controllers/authController");
+
 
 
 
@@ -57,11 +59,18 @@ app.get("/inscripciones", (req, res) => {
     res.sendFile(path.join(__dirname, "views", "inscripciones.html"));
 });
 
+app.get("/login", (req, res) => {
+    res.sendFile(path.join(__dirname, "views", "login.html"));
+});
+
 app.get("/", eventoController.home);
 app.get("/api/eventos", eventoController.obtenerEventos);
 app.post("/api/eventos", eventoController.agregarEventos);
 
 app.get("/api/inscripciones", inscripcionController.obtenerInscripciones);
 app.post("/api/inscripciones", inscripcionController.agregarInscripcion);
+
+app.post("/login", authController.login);
+
 
 

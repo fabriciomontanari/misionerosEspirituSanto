@@ -18,3 +18,12 @@ CREATE TABLE INSCRIPCIONES (
     eventoID INT NOT NULL,
     FOREIGN KEY (eventoID) references EVENTOS(id) ON DELETE CASCADE
 );
+
+CREATE TABLE USUARIOS (
+    ID INT IDENTITY(1,1) PRIMARY KEY, 
+    correo NVARCHAR(255) UNIQUE NOT NULL,
+    contrasena NVARCHAR(255) NOT NULL
+);
+
+INSERT INTO USUARIOS (correo, contrasena) 
+VALUES ('noreplymisionerosespiritusanto@gmail.com', 'admin123');

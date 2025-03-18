@@ -18,6 +18,7 @@
             <a href="/" class="home-button">
                 <i class="fas fa-home me-2"></i>Ir a Inicio
             </a>
+            <button onclick="cerrarSesion()">Cerrar Sesión</button>
         </header>
         
         <div class="menu-cards">
@@ -60,5 +61,17 @@
     </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            if (localStorage.getItem("admin") !== "true") {
+                window.location.href = "/login";
+            }
+        });
+    
+        function cerrarSesion() {
+            localStorage.removeItem("admin");
+            window.location.href = "/login";
+        }
+        </script>
 </body>
 </html>
