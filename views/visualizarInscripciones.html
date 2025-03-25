@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos</title>
+    <link rel="stylesheet" href="../public/css/visualizarInscripciones.css">
+</head>
+<body>
+    <header class="header-main">
+        <div class="header-content">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="/public/img/logo.png" alt="Logo Misioneros">
+                </div>
+                <div class="title-section">
+                    <h1>Misioneros del</h1>
+                    <p>Espíritu Santo</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/">Eventos</a></li>
+                    <li><a href="/">Nosotros</a></li>
+                    <li><a href="/">Contacto</a></li>
+                    <li id="admin-link" style="display: none;"><a href="/admin-menu">Admin</a></li>
+                    <li><a href="/login">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 class="events-title">Eventos Disponibles</h1>
+        <div id="eventosContainer"></div>
+    </div>
+
+    <script src="../public/js/visualizarInscripciones.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            if (localStorage.getItem("admin") !== "true") {
+                window.location.href = "/login";
+            }
+        });
+    
+        function cerrarSesion() {
+            localStorage.removeItem("admin");
+            window.location.href = "/login";
+        }
+        </script>
+</body>
+</html>

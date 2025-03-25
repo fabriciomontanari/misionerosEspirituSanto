@@ -34,7 +34,11 @@ async function iniciarSesion() {
     });
 
     if (!response.ok) {
-        alert("Credenciales incorrectas o error en el servidor.");
+        Swal.fire({
+            icon: 'error',
+            title: 'Credenciales incorrectas!',
+            text: 'Por favor, ingrese unas credenciales válidas.'
+          });
         return;
     }
 
@@ -44,6 +48,10 @@ async function iniciarSesion() {
         localStorage.setItem("admin", "true");
         window.location.href = "/admin-menu";
     } else {
-        alert("Credenciales incorrectas");
+        Swal.fire({
+            icon: 'error',
+            title: 'Credenciales incorrectas!',
+            text: 'Por favor, ingrese unas credenciales válidas.'
+          });
     }
 }

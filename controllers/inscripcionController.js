@@ -67,7 +67,25 @@ async function obtenerInscripciones(req, res) {
     }
 }
 
-module.exports = {
+
+async function obtenerInscripcionesPorEvento(req, res) {
+    try {
+        const eventoId = parseInt(req.params.id);
+        const inscritos = await inscripcionModel.obtenerInscripcionesPorEvento(eventoId);
+        res.json(inscritos);
+    } catch (error) {
+        console.error("Error al obtener inscritos por evento:", error);
+        res.status(500).json({
+            success: false,
+            message: "Error al obtener inscritos por evento",
+            error: error.message
+        });
+    }
+}
+
+
+module.exports = {  
     agregarInscripcion,
-    obtenerInscripciones
+    obtenerInscripciones,
+    obtenerInscripcionesPorEvento
 };
