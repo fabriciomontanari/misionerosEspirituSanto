@@ -1,1 +1,1 @@
-npm install express body-parser path mssql nodemailer bcryptjs
+npm install express body-parser path mssql nodemailer bcryptjs 

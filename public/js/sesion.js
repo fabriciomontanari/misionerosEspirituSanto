@@ -1,9 +1,22 @@
 function verificarAdmin() {
+    const adminLink = document.getElementById("admin-link");
     if (localStorage.getItem("admin") === "true") {
-        document.getElementById("admin-link").style.display = "block";
+        adminLink.style.display = "block";
     } else {
-        document.getElementById("admin-link").style.display = "none";
+        adminLink.style.display = "none";
     }
 }
 
-document.addEventListener("DOMContentLoaded", verificarAdmin);
+function verificarSesionUsuario() {
+    const loginLink = document.getElementById("login-link");
+    const estaLogueado = localStorage.getItem("usuarioLogueado") === "true";
+
+    if (loginLink) {
+        loginLink.style.display = estaLogueado ? "none" : "block";
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    verificarAdmin();
+    verificarSesionUsuario();
+});
