@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Eventos</title>
+    <link rel="icon" type="image/x-icon" href="/public/img/favicon.ico">
     <link rel="stylesheet" href="../public/css/visualizarInscripciones.css">
 </head>
 <body>
@@ -37,13 +38,13 @@
     <script src="../public/js/visualizarInscripciones.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            if (localStorage.getItem("admin") !== "true") {
+            if (sessionStorage.getItem("admin") !== "true") {
                 window.location.href = "/login";
             }
         });
     
         function cerrarSesion() {
-            localStorage.removeItem("admin");
+            sessionStorage.removeItem("admin");
             window.location.href = "/login";
         }
         </script>

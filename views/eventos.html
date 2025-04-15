@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Eventos</title>
+    <link rel="icon" type="image/x-icon" href="/public/img/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.7.12/sweetalert2.min.css">
     <link rel="stylesheet" href="../public/css/eventos.css">
@@ -79,12 +80,15 @@
             <div class="form-group">
                 <label for="imagen" class="form-label">Imagen del evento</label>
                 <div class="file-input-wrapper">
-                    <label for="imagen" class="file-input-label">
-                        <i class="fas fa-cloud-upload-alt"></i>Seleccionar imagen
-                    </label>
-                    <input type="file" id="imagen" name="imagen" class="file-input" accept="image/*" required>
+                  <div class="file-input-label" id="abrir-selector">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <span id="file-label-text">Seleccionar imagen</span>
+                  </div>
+                  <input type="file" id="imagen" name="imagen" class="file-input" accept="image/*" required style="display: none;">
                 </div>
-            </div>
+              </div>
+              
+            
             
             <button type="submit" class="submit-btn"><i class="fas fa-plus-circle"></i>Agregar Evento</button>
         </form>
@@ -93,11 +97,34 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.7.12/sweetalert2.all.min.js"></script>
     <script src="../public/js/eventos.js"></script>
     <script>
-        document.getElementById('imagen').addEventListener('change', function() {
-            const fileName = this.files[0].name;
-            const label = document.querySelector('.file-input-label');
-            label.innerHTML = `<i class="fas fa-file-image"></i>${fileName}`;
+        document.addEventListener("DOMContentLoaded", () => {
+          if (sessionStorage.getItem("admin") !== "true") {
+            window.location.href = "/login";
+          }
+      
+          const inputImagen = document.getElementById("imagen");
+          const fileLabelText = document.getElementById("file-label-text");
+          const abrirSelector = document.getElementById("abrir-selector");
+      
+          abrirSelector.addEventListener("click", () => {
+            inputImagen.click();
+          });
+      
+          inputImagen.addEventListener("change", function () {
+            if (this.files.length > 0) {
+              fileLabelText.textContent = this.files[0].name;
+            } else {
+              fileLabelText.textContent = "Seleccionar imagen";
+            }
+          });
         });
-    </script>
+      
+        function cerrarSesion() {
+          sessionStorage.removeItem("admin");
+          window.location.href = "/login";
+        }
+      </script>
+      
+    
 </body>
 </html>

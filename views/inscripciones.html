@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inscripción a Eventos - Misioneros del Espíritu Santo</title>
+  <link rel="icon" type="image/x-icon" href="/public/img/favicon.ico">
   <link rel="stylesheet" href="../public/css/index.css">
   <link rel="stylesheet" href="../public/css/inscripciones.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.7.12/sweetalert2.min.css">
@@ -36,34 +37,21 @@
     <h1 class="page-title">Inscripción a Evento</h1>
     
     <div class="form-container">
-      <div class="form-icon">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12,1.5C6.2,1.5,1.5,6.2,1.5,12S6.2,22.5,12,22.5S22.5,17.8,22.5,12S17.8,1.5,12,1.5z M12,20.5c-4.7,0-8.5-3.8-8.5-8.5 S7.3,3.5,12,3.5s8.5,3.8,8.5,8.5S16.7,20.5,12,20.5z"/>
-          <path d="M12,5.5c-0.6,0-1,0.4-1,1v5.3c0,0.3,0.1,0.6,0.4,0.8l3.6,2.5c0.5,0.3,1.1,0.2,1.4-0.3s0.2-1.1-0.3-1.4L13,11.2V6.5 C13,5.9,12.6,5.5,12,5.5z"/>
-        </svg>
-      </div>
-      
-      <div class="spirit-symbol">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M21.979 13.992c.493-.604.854-1.382.854-2.242 0-1.986-1.61-3.597-3.596-3.597-.507 0-.993.105-1.433.294C17.061 6.715 15.136 5.5 12.93 5.5c-2.388 0-4.408 1.399-5.338 3.409-.465-.227-1-.354-1.561-.354-1.986 0-3.597 1.61-3.597 3.596 0 1.33.73 2.492 1.806 3.109C3.449 16.322 3 17.332 3 18.429c0 2.208 1.791 4 4 4h11c2.208 0 4-1.792 4-4 0-1.322-.645-2.493-1.635-3.219"/>
-          <path d="M12.207 12.207L7.05 7.05c-.195-.195-.195-.512 0-.707l5.657-5.657c.195-.195.512-.195.707 0l5.657 5.657c.195.195.195.512 0 .707l-5.657 5.657c-.195.195-.512.195-.707 0z"/>
-          <path d="M12,8c2.209,0,4,1.791,4,4s-1.791,4-4,4s-4-1.791-4-4S9.791,8,12,8"/>
-        </svg>
-      </div>
-      
       <form id="inscripcionForm">
         <div class="form-group">
           <input type="text" id="nombre" name="nombre" placeholder=" " required>
+          <br>
           <label for="nombre">Nombre completo</label>
         </div>
         
         <div class="form-group">
           <input type="email" id="correo" name="correo" placeholder=" " required>
+          <br>
           <label for="correo">Correo electrónico</label>
         </div>
-        
         <div class="form-group">
           <input type="tel" id="telefono" name="telefono" placeholder=" " required>
+          <br>
           <label for="telefono">Teléfono</label>
         </div>
         
@@ -72,9 +60,9 @@
           <select id="eventoId" name="eventoId" required>
             <option value="" selected disabled>Seleccione una opción</option>
           </select>
+          <br>
           <label for="eventoId">Evento</label>
         </div>
-        
         <button type="submit">
           Inscribirse
         </button>

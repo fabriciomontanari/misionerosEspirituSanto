@@ -45,7 +45,8 @@ async function iniciarSesion() {
     const data = await response.json();
 
     if (data.success) {
-        localStorage.setItem("admin", "true");
+        sessionStorage.setItem("usuarioLogueado", "true");
+        sessionStorage.setItem("admin", "true");
         window.location.href = "/admin-menu";
     } else {
         Swal.fire({

@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         eventos.forEach(evento => {
             const eventCard = document.createElement("div");
-            eventCard.classList.add("event-card");
+            eventCard.classList.add("event-card", "active");            
 
             const imagenSrc = evento.imagen 
                 ? `data:image/png;base64,${evento.imagen}` 

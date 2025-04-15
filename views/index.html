@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Misioneros del Espíritu Santo</title>
+    <link rel="icon" type="image/x-icon" href="/public/img/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -28,8 +29,10 @@
                         <li><a href="#nosotros">Nosotros</a></li>
                         <li><a href="#contacto">Contacto</a></li>
                         <li id="admin-link" style="display: none;"><a href="/admin-menu">Admin</a></li>
-                        <li id="login-link"><a href="/login">Login</a></li>
-
+                        <li id="login-link"><a href="/login"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                        <li id="user-menu" style="display: none;">
+                        <a href="#" id="cerrar-sesion"><i class="fas fa-user-circle"></i> Cerrar sesión</a>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -138,7 +141,8 @@
             </div>
         </footer>
     </div>
-    <script src="/public/js/sesion.js"></script>
+    <script src="/public/js/animacion.js"></script>
     <script src="/public/js/index.js"></script>
+    <script src="/public/js/sesion.js"></script>
 </body>
 </html>
