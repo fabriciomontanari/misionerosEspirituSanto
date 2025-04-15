@@ -34,7 +34,7 @@ app.use(
         await poolPromise; 
         console.log("Conectado a la base de datos SQL Server");
 
-        const PORT = process.env.PORT || 3000;
+        const PORT = process.env.PORT || 1000;
         app.listen(PORT, () => {
             console.log(`Servidor corriendo en el puerto ${PORT}`);
         });

@@ -1,4 +1,4 @@
-const { sql, poolPromise } = require("../config/db");
+const pool = require("../config/db");
 
 async function login(req, res) {
     try {
@@ -7,21 +7,18 @@ async function login(req, res) {
             return res.status(400).json({ success: false, message: "Correo y contraseña son obligatorios." });
         }
 
-        let pool = await poolPromise;
-        const result = await pool.request()
-            .input("correo", sql.NVarChar, correo)
-            .query("SELECT * FROM USUARIOS WHERE correo = @correo");
+        const [rows] = await pool.query("SELECT * FROM USUARIOS WHERE correo = ?", [correo]);
 
-        console.log("Usuario encontrado en BD:", result.recordset);
+        console.log("Usuario encontrado en BD:", rows);
 
-        const usuario = result.recordset[0];
+        const usuario = rows[0];
 
         if (!usuario) {
             console.log("Usuario no encontrado");
             return res.status(401).json({ success: false, message: "Usuario no encontrado." });
         }
 
-        if (usuario.contrasena !== contrasena) { 
+        if (usuario.contrasena !== contrasena) {
             console.log("Contraseña incorrecta");
             return res.status(401).json({ success: false, message: "Credenciales incorrectas." });
         }

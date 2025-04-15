@@ -175,6 +175,7 @@ async function obtenerInscripcionesPorEvento(req, res) {
 }
 
 
+
 module.exports = {  
     agregarInscripcion,
     obtenerInscripciones,

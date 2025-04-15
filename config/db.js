@@ -1,25 +1,14 @@
-const sql = require("mssql");
+const mysql = require('mysql2/promise');
 
-const dbConfig = {
-    user: "sa",
-    password: "Fabricio23!",
-    server: "localhost",
-    database: "misionerosEspirituSanto",
-    options: {
-        encrypt: false, 
-        trustServerCertificate: true
-    }
-};
+const pool = mysql.createPool({
+    host: 'ballast.proxy.rlwy.net',     
+    port: 19457,                         
+    user: 'root',                       
+    password: 'qBXsZfplsUQGLnXpyvOpCIjWVVLkqHiF',         
+    database: 'railway',                
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
+});
 
-const poolPromise = new sql.ConnectionPool(dbConfig)
-    .connect()
-    .then(pool => {
-        console.log("Conectado a SQL Server");
-        return pool;
-    })
-    .catch(err => {
-        console.error("Error en la conexión a la base de datos:", err);
-        process.exit(1); 
-    });
-
-module.exports = { sql, poolPromise };
+module.exports = pool;
