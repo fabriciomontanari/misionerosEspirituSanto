@@ -1,14 +1,12 @@
-const mysql = require('mysql2/promise');
+const { Pool } = require("pg");
 
-const pool = mysql.createPool({
-    host: 'ballast.proxy.rlwy.net',     
-    port: 19457,                         
-    user: 'root',                       
-    password: 'qBXsZfplsUQGLnXpyvOpCIjWVVLkqHiF',         
-    database: 'railway',                
-    waitForConnections: true,
-    connectionLimit: 10,
-    queueLimit: 0
+const pool = new Pool({
+  user: "postgres.innyxdqzurkbjwwouzib", 
+  host: "aws-0-us-east-1.pooler.supabase.com", 
+  database: "postgres",
+  password: "MisionerosES!", 
+  port: 6543, 
+  ssl: { rejectUnauthorized: false }
 });
 
 module.exports = pool;

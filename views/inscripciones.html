@@ -39,29 +39,24 @@
     <div class="form-container">
       <form id="inscripcionForm">
         <div class="form-group">
-          <input type="text" id="nombre" name="nombre" placeholder=" " required>
-          <br>
+          <input type="text" id="nombre" name="nombre" placeholder="Nombre completo:" required>
           <label for="nombre">Nombre completo</label>
         </div>
         
         <div class="form-group">
-          <input type="email" id="correo" name="correo" placeholder=" " required>
-          <br>
+          <input type="email" id="correo" name="correo" placeholder="Correo electronico:" required>
           <label for="correo">Correo electrónico</label>
         </div>
         <div class="form-group">
-          <input type="tel" id="telefono" name="telefono" placeholder=" " required>
-          <br>
+          <input type="tel" id="telefono" name="telefono" placeholder="Telefono:" required>
           <label for="telefono">Teléfono</label>
         </div>
         
+        <h5>Evento:</h5>
         <div class="form-group">
-            <br>
           <select id="eventoId" name="eventoId" required>
-            <option value="" selected disabled>Seleccione una opción</option>
+            <option value="" disabled selected>Seleccione una opción</option>
           </select>
-          <br>
-          <label for="eventoId">Evento</label>
         </div>
         <button type="submit">
           Inscribirse

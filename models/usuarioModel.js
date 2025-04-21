@@ -2,11 +2,11 @@ const pool = require("../config/db");
 
 async function obtenerUsuarioPorCorreo(correo) {
     try {
-        const [rows] = await pool.query(
-            "SELECT * FROM USUARIOS WHERE correo = ?",
+        const result = await pool.query(
+            "SELECT * FROM usuarios WHERE correo = $1",
             [correo]
         );
-        return rows[0]; 
+        return result.rows[0]; 
     } catch (error) {
         console.error("Error al obtener usuario:", error);
         throw error;

@@ -2,25 +2,32 @@ const pool = require("../config/db");
 
 async function obtenerEventos() {
     try {
-        const [rows] = await pool.query(`
+        const result = await pool.query(`
             SELECT 
                 id,
-                nombreEvento,
+                nombreevento,
                 descripcion,
                 fecha,
                 hora,
                 lugar,
-                edadMinima,
-                edadMaxima,
+                edadminima,
+                edadmaxima,
                 imagen
-            FROM EVENTOS
+            FROM eventos
         `);
 
-        const eventos = rows.map(evento => {
-            if (evento.imagen) {
-                evento.imagen = Buffer.from(evento.imagen).toString("base64");
-            }
-            return evento;
+        const eventos = result.rows.map(evento => {
+            return {
+                id: evento.id,
+                nombreEvento: evento.nombreevento,
+                descripcion: evento.descripcion,
+                fecha: evento.fecha,
+                hora: evento.hora,
+                lugar: evento.lugar,
+                edadMinima: evento.edadminima,
+                edadMaxima: evento.edadmaxima,
+                imagen: evento.imagen ? Buffer.from(evento.imagen).toString("base64") : null
+            };
         });
 
         return eventos;
@@ -29,6 +36,7 @@ async function obtenerEventos() {
         throw error;
     }
 }
+
 
 async function agregarEventos(evento) {
     try {
@@ -39,20 +47,20 @@ async function agregarEventos(evento) {
         const imagenBuffer = Buffer.from(evento.imagen, "base64");
 
         await pool.query(`
-            INSERT INTO EVENTOS 
+            INSERT INTO eventos 
             (nombreEvento, descripcion, fecha, hora, lugar, edadMinima, edadMaxima, imagen)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
-            [
-                evento.nombreEvento,
-                evento.descripcion,
-                evento.fecha,
-                evento.hora,
-                evento.lugar,
-                evento.edadMinima,
-                evento.edadMaxima,
-                imagenBuffer
-            ]
-        );
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+        `,
+        [
+            evento.nombreEvento,
+            evento.descripcion,
+            evento.fecha,
+            evento.hora,
+            evento.lugar,
+            evento.edadMinima,
+            evento.edadMaxima,
+            imagenBuffer
+        ]);
     } catch (error) {
         console.error("Error al agregar el evento:", error);
         throw error;

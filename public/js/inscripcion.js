@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       Swal.fire({
         icon: 'success',
         title: '¡Éxito!',
-        text: 'Inscripción realizada con éxito.',
+        text: 'Inscripción realizada con éxito. \nRecibirás un correo de confirmación. \nRecuerda revisar tu bandeja de spam.',
         confirmButtonText: 'Aceptar'
       }).then(() => {
         e.target.reset();

@@ -7,11 +7,11 @@ async function login(req, res) {
             return res.status(400).json({ success: false, message: "Correo y contraseña son obligatorios." });
         }
 
-        const [rows] = await pool.query("SELECT * FROM USUARIOS WHERE correo = ?", [correo]);
+        const result = await pool.query("SELECT * FROM usuarios WHERE correo = $1", [correo]);
 
-        console.log("Usuario encontrado en BD:", rows);
+        console.log("Usuario encontrado en BD:", result.rows);
 
-        const usuario = rows[0];
+        const usuario = result.rows[0];
 
         if (!usuario) {
             console.log("Usuario no encontrado");
