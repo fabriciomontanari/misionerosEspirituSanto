@@ -14,6 +14,8 @@ async function obtenerEventos() {
                 edadmaxima,
                 imagen
             FROM eventos
+            WHERE fecha >= CURRENT_DATE  -- Solo eventos hoy o en el futuro
+            ORDER BY fecha ASC, hora ASC
         `);
 
         const eventos = result.rows.map(evento => {

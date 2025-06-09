@@ -1,16 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+
 :root {
-    --primary-color: #333;
-    --primary-dark: #222;
-    --primary-light: #444;
-    --accent-color: #e0a800;
-    --text-dark: #222;
-    --text-light: #777;
-    --white: #ffffff;
+    --primary-color: #542626; /* PANTONE P49-16 C - Marrón corporativo */
+    --primary-dark: #3d1c1c; /* Versión más oscura del marrón */
+    --primary-light: #6b3333; /* Versión más clara del marrón */
+    --accent-color: #ffb900; /* PANTONE P14-16 C - Dorado corporativo */
+    --secondary-color: #272460; /* PANTONE Dark Blue C - Azul marino corporativo */
+    --secondary-light: #3a3280; /* Versión más clara del azul */
+    
+    --text-dark: #1a1a1a;
+    --text-light: #666666;
     --bg-light: #fafafa;
+    --bg-white: #ffffff;
     --border-color: #e0e0e0;
-    --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 8px 15px rgba(0, 0, 0, 0.08);
-    --shadow-lg: 0 15px 25px rgba(0, 0, 0, 0.1);
+    
+    --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    --gradient-accent: linear-gradient(135deg, var(--accent-color), #e6a500);
+    --gradient-secondary: linear-gradient(135deg, var(--secondary-color), var(--secondary-light));
+    
+    --shadow-sm: 0 2px 10px rgba(84, 38, 38, 0.08);
+    --shadow-md: 0 8px 20px rgba(84, 38, 38, 0.12);
+    --shadow-lg: 0 15px 35px rgba(84, 38, 38, 0.15);
     --transition: all 0.3s ease;
 }
 
@@ -33,11 +43,12 @@ body {
     padding: 40px 20px;
 }
 
+/* HEADER - Usando los colores del formulario de inscripciones */
 .header-main {
-    background-color: var(--white);
-    box-shadow: var(--shadow-sm);
+    background: var(--gradient-primary);
+    box-shadow: var(--shadow-md);
     padding: 20px 0;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 3px solid var(--accent-color);
 }
 
 .header-content {
@@ -60,12 +71,14 @@ body {
     margin-right: 15px;
     border-radius: 50%;
     overflow: hidden;
-    border: 2px solid var(--primary-light);
+    border: 3px solid var(--accent-color);
     transition: transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 185, 0, 0.3);
 }
 
 .logo:hover {
     transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(255, 185, 0, 0.4);
 }
 
 .logo img {
@@ -74,99 +87,119 @@ body {
     object-fit: cover;
 }
 
-.title-section {
-    color: var(--primary-dark);
-}
-
 .title-section h1 {
-    font-size: 1.1rem;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    font-size: 1.3rem;
+    color: var(--bg-white);
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .title-section p {
-    font-size: 0.9rem;
-    color: var(--text-light);
+    font-weight: 300;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 nav ul {
     display: flex;
-    list-style-type: none;
+    list-style: none;
     gap: 20px;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: var(--text-dark);
+    color: var(--bg-white);
     font-weight: 500;
     position: relative;
-    transition: all 0.3s ease;
-    padding-bottom: 5px;
+    transition: var(--transition);
+    padding: 8px 16px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 nav ul li a:hover {
-    color: var(--primary-dark);
+    background: var(--accent-color);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 185, 0, 0.3);
 }
 
-nav ul li a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--accent-color);
-    transition: width 0.3s ease;
-}
-
-nav ul li a:hover::after {
-    width: 100%;
-}
-
+/* TÍTULO DE EVENTOS */
 .events-title {
     text-align: center;
     margin-bottom: 40px;
-    color: var(--primary-dark);
-    font-weight: 700;
-    font-size: 1.7rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1.8rem;
     letter-spacing: -0.02em;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    width: 100%;
 }
 
+.events-title::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 4px;
+    background: var(--gradient-accent);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(255, 185, 0, 0.3);
+}
+
+/* CONTENEDOR DE EVENTOS */
 #eventosContainer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
 }
 
+/* TARJETAS DE EVENTOS */
 .card {
-    background-color: var(--white);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 25px;
+    background-color: var(--bg-white);
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    padding: 2.5rem;
     transition: var(--transition);
-    box-shadow: var(--shadow-sm);
     position: relative;
     overflow: hidden;
+    border: 1px solid rgba(84, 38, 38, 0.1);
 }
 
 .card::before {
     content: '';
     position: absolute;
+    width: 100%;
+    height: 8px;
+    background: var(--gradient-primary);
     top: 0;
     left: 0;
+}
+
+.card::after {
+    content: '';
+    position: absolute;
     width: 100%;
     height: 4px;
-    background-color: var(--accent-color);
+    background: var(--accent-color);
+    bottom: 0;
+    left: 0;
 }
 
 .card:hover {
     transform: translateY(-8px);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
 }
 
 .card h2 {
-    color: var(--primary-dark);
+    color: var(--primary-color);
     margin-bottom: 15px;
     font-size: 1.3rem;
     font-weight: 600;
@@ -179,30 +212,62 @@ nav ul li a:hover::after {
     line-height: 1.7;
 }
 
+/* BOTONES DE EVENTOS */
 .card button {
-    background-color: var(--primary-dark);
-    color: var(--white);
-    padding: 10px 18px;
+    background: var(--gradient-primary);
+    color: var(--bg-white);
     border: none;
-    border-radius: 6px;
+    border-radius: 50px;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    font-size: 1rem;
     cursor: pointer;
-    font-weight: 500;
     transition: var(--transition);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
 }
 
 .card button:hover {
-    background-color: var(--primary-light);
-    transform: translateY(-2px);
+    background: var(--gradient-secondary);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(39, 36, 96, 0.3);
 }
 
+.card button:active {
+    transform: translateY(-1px);
+}
+
+.card button.golden {
+    background: var(--gradient-accent);
+    color: var(--primary-color);
+    border: 2px solid var(--accent-color);
+}
+
+.card button.golden:hover {
+    background: var(--accent-color);
+    box-shadow: 0 8px 25px rgba(255, 185, 0, 0.3);
+}
+
+.card button.burgundy {
+    background: var(--gradient-primary);
+    color: var(--bg-white);
+}
+
+.card button.burgundy:hover {
+    background: var(--gradient-secondary);
+    box-shadow: 0 8px 25px rgba(39, 36, 96, 0.3);
+}
+
+/* SECCIÓN DE INSCRITOS */
 .inscritos {
     margin-top: 20px;
     padding: 15px;
     background-color: var(--bg-light);
     border-radius: 8px;
     border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent-color);
 }
 
 .inscritos ul {
@@ -219,7 +284,138 @@ nav ul li a:hover::after {
 .inscritos li:last-child {
     border-bottom: none;
 }
+
 .inscritos li span {
     font-weight: 600;
-    color: var(--primary-dark);
+    color: var(--primary-color);
+}
+
+/* VARIANTES TEMÁTICAS PARA LAS TARJETAS */
+.card.golden::before {
+    background: var(--gradient-accent);
+}
+
+.card.golden h2 {
+    color: var(--accent-color);
+}
+
+.card.golden .inscritos {
+    border-left-color: var(--accent-color);
+}
+
+.card.golden::after {
+    background: var(--accent-color);
+}
+
+.card.burgundy::before {
+    background: var(--gradient-secondary);
+}
+
+.card.burgundy h2 {
+    color: var(--secondary-color);
+}
+
+.card.burgundy .inscritos {
+    border-left-color: var(--secondary-color);
+}
+
+.card.burgundy .inscritos li span {
+    color: var(--secondary-color);
+}
+
+.card.burgundy::after {
+    background: var(--secondary-color);
+}
+
+/* CLASES UTILITARIAS */
+.accent-border {
+    border-left: 4px solid var(--accent-color);
+    padding-left: 1rem;
+}
+
+.text-primary {
+    color: var(--primary-color);
+}
+
+.text-accent {
+    color: var(--accent-color);
+}
+
+.text-secondary {
+    color: var(--secondary-color);
+}
+
+.bg-primary {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+}
+
+.bg-accent {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+.bg-secondary {
+    background-color: var(--secondary-color);
+    color: var(--bg-white);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .header-main {
+        padding: 1rem 0;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .logo, .title-section {
+        margin-bottom: 1rem;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    
+    nav ul li a {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .container {
+        padding: 20px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1.5rem 1rem;
+    }
+    
+    .card {
+        padding: 1.5rem;
+        border-radius: 12px;
+    }
+    
+    .events-title {
+        font-size: 1.5rem;
+    }
+    
+    .card button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    #eventosContainer {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 }

@@ -109,7 +109,7 @@ async function agregarInscripcion(req, res) {
                     <p>Gracias por inscribirte en nuestro evento. Tu registro ha sido confirmado y estamos emocionados de contar con tu presencia.</p>
                     
                     <div class="event-details">
-                      <h3>${evento.nombreEvento}</h3>
+                      <h3>${evento.nombreevento}</h3>
                       <p><strong>📅 Fecha:</strong> ${evento.fecha}</p>
                       <p><strong>⏰ Hora:</strong> ${evento.hora}</p>
                       <p><strong>📍 Lugar:</strong> ${evento.lugar}</p>

@@ -1,76 +1,137 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inscripción a Eventos - Misioneros del Espíritu Santo</title>
-  <link rel="icon" type="image/x-icon" href="/public/img/favicon.ico">
-  <link rel="stylesheet" href="../public/css/index.css">
-  <link rel="stylesheet" href="../public/css/inscripciones.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.7.12/sweetalert2.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inscripción a Eventos - CECAF</title>
+<link rel="icon" type="image/x-icon" href="/public/img/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.7.12/sweetalert2.min.css">
+<link rel="stylesheet" href="../public/css/inscripciones.css">
 </head>
 <body>
-  <header class="header-main">
-    <div class="header-content">
-        <div class="logo-container">
-            <div class="logo">
-                <img src="../public/img/logo.jpeg" alt="Logo Misioneros">
+<header>
+            <div class="header-main">
+                <div class="logo-container">
+                    <div class="logo logo-pulse">
+                        <img src="../public/img/cecaf-horizontal.png" alt="Logo CECAF" style="max-width: 100%; max-height: 100%;">
+                    </div>
+                </div>
+                <div class="title-section">
+                    <h1>Centro Católico</h1>
+                    <p>de Formación</p>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/">Eventos</a></li>
+                        <li><a href="/">Nosotros</a></li>
+                        <li><a href="/">Contacto</a></li>
+                        <li id="admin-link" style="display: none;"><a href="/admin-menu">Admin</a></li>
+                        <li id="login-link"><a href="/login"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                        <li id="user-menu" style="display: none;">
+                        <a href="#" id="cerrar-sesion"><i class="fas fa-user-circle"></i> Cerrar sesión</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-            <div class="title-section">
-                <h1>Misioneros del</h1>
-                <p>Espíritu Santo</p>
-            </div>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="/">Inicio</a></li>
-                <li><a href="/">Eventos</a></li>
-                <li><a href="/">Nosotros</a></li>
-                <li><a href="/">Contacto</a></li>
-                <li id="admin-link" style="display: none;"><a href="/admin-menu">Admin</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+        </header>
+
+<main>
+  <h1 class="page-title">Inscripción a Evento</h1>
   
-  <main>
-    <h1 class="page-title">Inscripción a Evento</h1>
-    
-    <div class="form-container">
-      <form id="inscripcionForm">
-        <div class="form-group">
-          <input type="text" id="nombre" name="nombre" placeholder="Nombre completo:" required>
-          <label for="nombre">Nombre completo</label>
+  <div class="form-container">
+    <div class="form-header">
+      <h2>¡Únete a Nosotros!</h2>
+      <p>Completa el formulario para inscribirte al evento de tu elección</p>
+    </div>
+
+    <form id="inscripcionForm">
+      <div class="form-section">
+        <div class="section-title">
+          <i class="fas fa-user"></i>
+          <span>Información Personal</span>
         </div>
         
-        <div class="form-group">
-          <input type="email" id="correo" name="correo" placeholder="Correo electronico:" required>
+        <div class="form-row">
+          <div class="form-group">
+            <input type="text" id="nombre" name="nombre" placeholder=" " required>
+            <label for="nombre">Nombre completo</label>
+          </div>
+          <div class="form-group">
+            <input type="tel" id="telefono" name="telefono" placeholder=" " required>
+            <label for="telefono">Teléfono</label>
+          </div>
+        </div>
+        
+        <div class="form-group full-width">
+          <input type="email" id="correo" name="correo" placeholder=" " required>
           <label for="correo">Correo electrónico</label>
         </div>
-        <div class="form-group">
-          <input type="tel" id="telefono" name="telefono" placeholder="Telefono:" required>
-          <label for="telefono">Teléfono</label>
+      </div>
+
+      <div class="form-section">
+        <div class="section-title">
+          <i class="fas fa-calendar-check"></i>
+          <span>Selección de Evento</span>
         </div>
-        
-        <h5>Evento:</h5>
         <div class="form-group">
           <select id="eventoId" name="eventoId" required>
-            <option value="" disabled selected>Seleccione una opción</option>
+            <option value="" disabled selected>Seleccione un evento</option>
           </select>
+          <label for="eventoId"></label>  
         </div>
-        <button type="submit">
-          Inscribirse
-        </button>
-      </form>
-    </div>
-  </main>
-  
-  <footer>
-    &copy; 2025 Misioneros del Espíritu Santo. Todos los derechos reservados.
-  </footer>
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.7.12/sweetalert2.all.min.js"></script>
-  <script src="../public/js/inscripcion.js"></script>
-  <script src="../public/js/sesion.js"></script>
+        
+        <div class="event-info" id="eventInfo">
+          <div class="event-details">
+            <div class="event-detail">
+              <i class="fas fa-calendar"></i>
+              <span id="eventDate">Fecha del evento</span>
+            </div>
+            <div class="event-detail">
+              <i class="fas fa-clock"></i>
+              <span id="eventTime">Hora del evento</span>
+            </div>
+            <div class="event-detail">
+              <i class="fas fa-map-marker-alt"></i>
+              <span id="eventLocation">Ubicación</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-button">
+        <i class="fas fa-check-circle"></i>
+        Confirmar Inscripción
+      </button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2025 Misioneros del Espíritu Santo. Todos los derechos reservados.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.7.12/sweetalert2.all.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.7.12/sweetalert2.all.min.js"></script>
+<script src="../public/js/inscripcion.js"></script>
+<script src="../public/js/sesion.js"></script>
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+  const inputs = document.querySelectorAll('input, select');
+  inputs.forEach(input => {
+    input.addEventListener('focus', function() {
+      this.parentElement.style.transform = 'translateY(-2px)';
+    });
+    
+    input.addEventListener('blur', function() {
+      this.parentElement.style.transform = 'translateY(0)';
+    });
+  });
+});
+
+</script>
 </body>
 </html>
