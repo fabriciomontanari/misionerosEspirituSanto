@@ -1,3 +1,4 @@
+require ("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
@@ -44,14 +45,14 @@ app.post('/enviar-mensaje', async (req, res) => {
     const transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
-            user: 'noreplymisionerosespiritusanto@gmail.com',
-            pass: 'gfky tcot qhqb dlin'
+            user: process.env.MAIL_USER,
+            pass: process.env.MAIL_PASSWORD
         }
     });
 
     const mailOptions = {
         from: email,
-        to: 'noreplymisionerosespiritusanto@gmail.com',
+        to: process.env.MAIL_USER,
         subject: `${asunto}`,
         html: `
           <!DOCTYPE html>
