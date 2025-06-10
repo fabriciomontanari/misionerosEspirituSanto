@@ -1,1 +1,1 @@
-npm install express body-parser path  nodemailer bcryptjs pg
+npm install express body-parser path  nodemailer bcryptjs pg dotenv
