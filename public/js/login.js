@@ -25,7 +25,7 @@ async function iniciarSesion() {
     const correo = correoInput.value;
     const contrasena = contrasenaInput.value;
 
-    console.log("Intentando iniciar sesión con:", correo, contrasena); 
+    console.log("Intentando iniciar sesión"); 
 
     const response = await fetch("/login", {
         method: "POST",
