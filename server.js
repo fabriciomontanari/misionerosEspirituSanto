@@ -52,7 +52,7 @@ app.post('/enviar-mensaje', async (req, res) => {
 
     const mailOptions = {
         from: email,
-        to: process.env.MAIL_USER,
+        to: 'cefejcostarica@gmail.com',
         subject: `${asunto}`,
         html: `
           <!DOCTYPE html>
